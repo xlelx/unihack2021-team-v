@@ -5,6 +5,19 @@ const axios  = require('axios');
 
 app.use(bodyParser.json())
 
+/*
+Example: 
+{
+    "location": "-37.815340,144.963230",
+    "categories": [
+        "movie_theater",
+        "park"
+    ]
+}
+
+catogries must be of types from https://developers.google.com/maps/documentation/places/web-service/supported_types
+
+*/
 app.post('/nearby', async (req, res) => {
     const categories = req.body.categories;
     const allPlaceRequests = categories.map((category) => {
